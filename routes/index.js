@@ -5,7 +5,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Code-Zen' });
 });
 
 // Google OAuth login route
@@ -24,15 +24,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/zen',
-    failureRedirect: '/zen'
+    successRedirect: '/code-zen',
+    failureRedirect: '/code-zen'
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/movies');
+    res.redirect('/code-zen');
   });
 });
 
