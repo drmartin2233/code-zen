@@ -24,15 +24,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/code-zen',
-    failureRedirect: '/code-zen'
+    successRedirect: '/posts',
+    failureRedirect: '/'
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/code-zen');
+    res.redirect('/');
   });
 });
 

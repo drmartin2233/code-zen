@@ -2,6 +2,13 @@ const mongoose = require('mongoose');
 // Shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+  content: {
+    type: String,
+    required: true
+  },
+});
+
 
 const postSchema = new Schema({
     title: {
