@@ -5,9 +5,9 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // All routes "starts with" / (root)
 
-// POST /movies/:id/reviews
+// POST /movies/:id/comments
 router.post('/posts/:id/comments', ensureLoggedIn, commentsCtrl.create);
-// DELETE /reviews/:id
+// DELETE /comments/:id
 router.delete('/comments/:id', ensureLoggedIn, commentsCtrl.delete);
 
 

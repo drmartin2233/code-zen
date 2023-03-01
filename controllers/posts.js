@@ -31,6 +31,7 @@ module.exports = {
 function show(req, res) {
   Post.findById(req.params.id, function(err, post) {
     let title = post.title
+    console.log(post)
     res.render('posts/show', {
       post, title
     });

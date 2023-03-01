@@ -7,6 +7,15 @@ const commentSchema = new Schema({
     type: String,
     required: true
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+    userName: String,
+    userAvatar: String
+}, {
+  timestamps: true
 });
 
 

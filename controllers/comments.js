@@ -1,5 +1,6 @@
 const Post = require('../models/post')
 
+
 module.exports = {
     create,
     delete: deleteComment
@@ -10,7 +11,13 @@ module.exports = {
     // review nested within an array
     Post.findOne({
       'comments._id': req.params.id,
-      'comments.user': req.user._id
+        "_comments.user": req.user._id,
+      get "comments.user"() {
+          return this["_comments.user"];
+      },
+      set "comments.user"(value) {
+          this["_comments.user"] = value;
+      },
     }).then(function(post) {
       if (!post) return res.redirect('/posts');
       post.comments.remove(req.params.id);
@@ -27,13 +34,18 @@ module.exports = {
       req.body.user = req.user._id;
       req.body.userName = req.user.name;
       req.body.userAvatar = req.user.avatar;
-      
+      console.log(req.body)
       // We push an object with the data for the
       // review subdoc into Mongoose arrays
       post.comments.push(req.body);
       post.save(function(err) {
+        if (err) {
+            console.log(err)
+        }
         // Step 5: Respond with a redirect because we've mutated data
         res.redirect(`/posts/${post._id}`);
       });
     });
   }
+
+  

@@ -2,14 +2,18 @@ const express = require('express');
 const router = express.Router();
 const postsCtrl = require('../controllers/posts');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
+//const commentsCtrl = require('../controllers/comments');
 
 // GET /POSTS
 router.get('/', postsCtrl.index);
 
 router.get('/new', ensureLoggedIn, postsCtrl.new)
 
-router.get('/:id/show', postsCtrl.show);
-
 router.post('/new', ensureLoggedIn, postsCtrl.create);
+
+router.get('/:id', postsCtrl.show);
+
+
+//router.post('/:id/comments', ensureLoggedIn, commentsCtrl.create);
 
 module.exports = router;
