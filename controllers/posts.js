@@ -4,7 +4,9 @@ module.exports = {
     index,
     show,
     new: newPost,
-    create
+    create,
+    delete: deletePost,
+    update
   };
 
   function index(req, res) {
@@ -38,5 +40,30 @@ function show(req, res) {
 
   })
 };  
+   
+
+
+function deletePost(req, res) {
+  Post.findOneAndDelete(
     
-    
+    {_id: req.params.id, userRecommending: req.user._id}, function(err) {
+      
+      res.redirect('/posts');
+    }
+  );
+}
+
+function update(req, res) {
+  console.log(test)
+  Post.findOneAndUpdate(
+    {_id: req.params.id, userRecommending: req.user._id},
+    // update object with updated properties
+    req.body,
+    // options object with new: true to make sure updated doc is returned
+    {new: true},
+    function(err, post) {
+      if (err || !post) return res.redirect('/posts');
+      res.redirect(`/posts/${post._id}`);
+    }
+  );
+}

@@ -13,7 +13,8 @@ router.post('/new', ensureLoggedIn, postsCtrl.create);
 
 router.get('/:id', postsCtrl.show);
 
+router.delete('/:id', postsCtrl.delete);
 
-//router.post('/:id/comments', ensureLoggedIn, commentsCtrl.create);
+router.put('/:id', postsCtrl.update);
 
 module.exports = router;

@@ -10,10 +10,12 @@
     <h1 id="mb-4">Community Posts</h1>
     
     <% posts.forEach(post => { %>
-      <a href="/posts/<%= post._id %>"  class="btn btn-success">More</a>
       <div id="card">
+        
         <%= post.title %>
+        <a href="/posts/<%= post._id %>"  class="btn btn-success">More</a>
       </div>
+      
     <% }) %>
    </div>
    

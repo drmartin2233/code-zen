@@ -4,6 +4,16 @@
     <div>Title:</div>
     <div><%= post.title %></div>
     <div><%= post.postContent %></div>
+    <% if (user) { %>
+        <form action="/posts/<%= post.id %>?_method=DELETE"
+            class="delete-form" method="POST">
+            <button type="submit">Delete Post</button>
+        </form>
+        <form action="/posts/<%= post.id %>?_method=PUT"
+            class="Edit-form" method="PUT">
+            <button type="submit">Edit Post</button>
+        </form>
+    <% } %>
 </section>
 
 <br><br><h2>Comments</h2>
