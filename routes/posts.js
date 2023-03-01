@@ -8,8 +8,8 @@ router.get('/', postsCtrl.index);
 
 router.get('/new', ensureLoggedIn, postsCtrl.new)
 
-router.get('/:id', postsCtrl.show);
+router.get('/:id/show', postsCtrl.show);
 
-router.post('/', ensureLoggedIn, postsCtrl.create);
+router.post('/new', ensureLoggedIn, postsCtrl.create);
 
 module.exports = router;

@@ -9,6 +9,7 @@ module.exports = {
 
   function index(req, res) {
     Post.find({}, function(err, posts) {
+      console.log(posts);
       res.render('posts/index', { title: 'All Posts', posts });
     });
   }
@@ -18,6 +19,7 @@ module.exports = {
   }
   
   function create(req, res) {
+    console.log(req.body);
     const post = new Post(req.body);
     post.save(function(err) {
       if (err) return res.redirect('/posts/new');
@@ -27,11 +29,13 @@ module.exports = {
   }
 
 function show(req, res) {
-  Post.findById(req.params.id)
-    .populate('content')
-    .exec(function(err, post) {
-      res.render('posts/show', {
-        title, postContent,comment
-      });
-    })
-}
+  Post.findById(req.params.id, function(err, post) {
+    let title = post.title
+    res.render('posts/show', {
+      post, title
+    });
+
+  })
+};  
+    
+    

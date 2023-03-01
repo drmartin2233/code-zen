@@ -8,9 +8,9 @@
   <body>
    <div id="container">
     <h1 id="mb-4">Community Posts</h1>
-    <a href="/posts/show" class="btn btn-success">More</a>
-
-    <% posts.forEach(article => { %>
+    
+    <% posts.forEach(post => { %>
+      <a href="/posts/<%= post._id %>/show"  class="btn btn-success">More</a>
       <div id="card">
         <%= post.title %>
       </div>
