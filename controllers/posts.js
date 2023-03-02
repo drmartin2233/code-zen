@@ -6,7 +6,8 @@ module.exports = {
     new: newPost,
     create,
     delete: deletePost,
-    update
+    update,
+    edit
   };
 
   function index(req, res) {
@@ -54,9 +55,9 @@ function deletePost(req, res) {
 }
 
 function update(req, res) {
-  console.log(test)
+  console.log("test")
   Post.findOneAndUpdate(
-    {_id: req.params.id, userRecommending: req.user._id},
+    {_id: req.params.id},
     // update object with updated properties
     req.body,
     // options object with new: true to make sure updated doc is returned
@@ -66,4 +67,12 @@ function update(req, res) {
       res.redirect(`/posts/${post._id}`);
     }
   );
+}
+
+function edit(req, res) {
+  Post.findOne({_id: req.params.id}, function(err, post) {
+    let title = post.title
+    if (err || !post) return res.redirect('/posts');
+    res.render('posts/edit', {post, title});
+  });
 }

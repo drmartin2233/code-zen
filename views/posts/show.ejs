@@ -9,10 +9,10 @@
             class="delete-form" method="POST">
             <button type="submit">Delete Post</button>
         </form>
-        <form action="/posts/<%= post.id %>?_method=PUT"
-            class="Edit-form" method="PUT">
+        <a href="/posts/<%= post.id %>/edit"
+            class="Edit-form">
             <button type="submit">Edit Post</button>
-        </form>
+        </a>
     <% } %>
 </section>
 
@@ -24,6 +24,7 @@
     <textarea name="content"></textarea>
     <input type="submit" value="Add Comment">
   </form>
+  
 <% } %>
 
 <% if (post.comments.length) { %>
