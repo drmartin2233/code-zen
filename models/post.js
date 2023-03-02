@@ -27,11 +27,20 @@ const postSchema = new Schema({
     
     postContent: {
       type: String,
-      required: true
+      required: true,
+      get required() {
+        return this._required;
+      },
+      set required(value) {
+        this._required = value;
+      },
+      createdAt: Date.now(),
+      timestamps: true
     },
-   
+    
     comments: [commentSchema]
   }, {
+    createdAt: Date.now(),
     timestamps: true
   });
   

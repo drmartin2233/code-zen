@@ -203,3 +203,8 @@ li {
 li {
   list-style: none;
 }
+
+div {
+  text-align: center;
+  text-justify: auto;
+}

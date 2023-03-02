@@ -36,7 +36,7 @@ function show(req, res) {
     let title = post.title
     console.log(post)
     res.render('posts/show', {
-      post, title
+      post, title, 
     });
 
   })
@@ -46,9 +46,7 @@ function show(req, res) {
 
 function deletePost(req, res) {
   Post.findOneAndDelete(
-    
     {_id: req.params.id, userRecommending: req.user._id}, function(err) {
-      
       res.redirect('/posts');
     }
   );
