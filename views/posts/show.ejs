@@ -47,12 +47,7 @@
             <div id="comment">
                 <%= r.content %><br>
                 <%= r.createdAt.toLocaleString() %>
-                <% if (user && r.user.equals(user._id)) { %>
-                    <form action="/comments/<%= r._id %>_method=DELETE" method="POST">
-                        <button type="submit">X</button>
-                        <% console.log(r) %>
-                    </form>
-                  <% } %>
+               
                 <% }); %>
             </div>
         <tr>
