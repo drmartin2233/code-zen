@@ -20,5 +20,19 @@
     "node": "^19.6.1",
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0"
-  }
+  },
+  "description": "",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drmartin2233/code-zen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drmartin2233/code-zen/issues"
+  },
+  "homepage": "https://github.com/drmartin2233/code-zen#readme"
 }

@@ -52,6 +52,7 @@ function deletePost(req, res) {
   );
 }
 
+
 function update(req, res) {
   console.log("test")
   Post.findOneAndUpdate(
