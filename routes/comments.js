@@ -10,6 +10,9 @@ router.post('/posts/:id/comments', ensureLoggedIn, commentsCtrl.create);
 // DELETE /comments/:id
 router.delete('/posts/:id/comments/:id', ensureLoggedIn, commentsCtrl.delete);
 
+// router.put('posts/:id/update', ensureLoggedIn, commentsCtrl.update);
+
+// router.get('posts/:id/edit', ensureLoggedIn, commentsCtrl.edit);
 
 
 

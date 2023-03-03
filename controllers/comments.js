@@ -3,7 +3,9 @@ const Post = require('../models/post')
 
 module.exports = {
     create,
-    delete: deleteComment
+    delete: deleteComment,
+    // update,
+    // edit
   };
 
 
@@ -43,4 +45,25 @@ function deleteComment(req, res) {
     });
   }
 
+  // function update(req, res) {
+  //   console.log("test")
+  //   Post.findOneAndUpdate(
+  //     {_id: req.params.id},
+  //     // update object with updated properties
+  //     req.body,
+  //     // options object with new: true to make sure updated doc is returned
+  //     {new: true},
+  //     function(err, post) {
+  //       if (err || !post) return res.redirect('/posts');
+  //       res.redirect(`/posts/${post._id}`);
+  //     }
+  //   );
+  // }
   
+  // function edit(req, res) {
+  //   Post.findOne({'comments._id': req.params.id}, function(err, post) {
+  //     let title = post.title
+  //     if (err || !post) return res.redirect('/posts');
+  //     res.render('posts/edit', {post, title});
+  //   });
+  // } 
