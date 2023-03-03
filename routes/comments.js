@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const commentsCtrl = require('../controllers/comments');
-const ensureLoggedIn = require('../config/banana');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // All routes "starts with" / (root)
 
