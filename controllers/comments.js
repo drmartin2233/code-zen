@@ -4,8 +4,8 @@ const Post = require('../models/post')
 module.exports = {
     create,
     delete: deleteComment,
-    // update,
-    // edit
+    update,
+    edit
   };
 
 
@@ -45,25 +45,30 @@ function deleteComment(req, res) {
     });
   }
 
-  // function update(req, res) {
-  //   console.log("test")
-  //   Post.findOneAndUpdate(
-  //     {_id: req.params.id},
-  //     // update object with updated properties
-  //     req.body,
-  //     // options object with new: true to make sure updated doc is returned
-  //     {new: true},
-  //     function(err, post) {
-  //       if (err || !post) return res.redirect('/posts');
-  //       res.redirect(`/posts/${post._id}`);
-  //     }
-  //   );
-  // }
+  function update(req, res) {
+    // Note the cool "dot" syntax to query on the property of a subdoc
+    Post.findOne({'comments._id': req.params.id}, function(err, post) {
+      // Find the comment subdoc using the id method on Mongoose arrays
+      // https://mongoosejs.com/docs/subdocs.html
+      const commentSubdoc = post.comments.id(req.params.id);
+      console.log(commentSubdoc, req.user, "<<<<<<<<!!")
+      // Ensure that the comment was created by the logged in user
+      // if (!commentSubdoc.user.equals(req.user._id)) return res.redirect(`/posts/${post._id}`);
+      // Update the text of the comment
+      commentSubdoc.content = req.body.content;
+      // Save the updated book
+      post.save(function(err) {
+        // Redirect back to the book's show view
+        res.redirect(`/posts/${post._id}`);
+      });
+    });
+  }
   
-  // function edit(req, res) {
-  //   Post.findOne({'comments._id': req.params.id}, function(err, post) {
-  //     let title = post.title
-  //     if (err || !post) return res.redirect('/posts');
-  //     res.render('posts/edit', {post, title});
-  //   });
-  // } 
+  function edit(req, res) {
+    Post.findOne({'comments._id': req.params.id}, function(err, post) {
+      const comment = post.comments.id(req.params.id);
+      if (err || !comment) return res.redirect('/posts');
+      console.log(comment)
+      res.render('posts/comments/edit', {comment, title: "comment"});
+    });
+  } 

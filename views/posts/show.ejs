@@ -1,72 +1,75 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Title:</div>
-    <div><%= post.title %></div>
-    <div><%= post.postContent %></div>
-    <div>
-        <% if (user) { %>
-            <form action="/posts/<%= post.id %>?_method=DELETE"
-                class="delete-form" method="POST">
-                <button type="submit">Delete Post</button>
-            </form>
-            <a href="/posts/<%= post.id %>/edit"
-                class="Edit-form">
-                <button type="submit">Edit Post</button>
-            </a>
-        <% } %>
-    </div>
+  <div>Title:</div>
+  <div><%= post.title %></div>
+  <div><%= post.postContent %></div>
+  <div>
+    <% if (user) { %>
+    <form
+      action="/posts/<%= post.id %>?_method=DELETE"
+      class="delete-form"
+      method="POST"
+    >
+      <button type="submit">Delete Post</button>
+    </form>
+    <a href="/posts/<%= post.id %>/edit" class="Edit-form">
+      <button type="submit">Edit Post</button>
+    </a>
+    <% } %>
+  </div>
 </section>
 
-<br><br><h2>Comments</h2>
+<br /><br />
+<h2>Comments</h2>
 <% if (user) { %>
-  <form id="add-comment-form" method="POST"
-    action="/comments/posts/<%= post._id %>/comments">
-    <label>Comment:</label>
-    <textarea name="content"></textarea><br>
-    <div>
-        <input type="submit" value="Add Comment">
+<form
+  id="add-comment-form"
+  method="POST"
+  action="/posts/<%= post._id %>/comments"
+>
+  <label>Comment:</label>
+  <textarea name="content"></textarea><br />
+  <div>
+    <input type="submit" value="Add Comment" />
+  </div>
+</form>
+
+<% } %> <% if (post.comments.length) { %>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+      <th>Comment</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let total = 0 %> <% post.comments.forEach(function(r) { %>
+    <div id="comment">
+      <%= r.content %><br />
+      <%= r.createdAt.toLocaleString() %>
+      <form
+        action="/posts/<%= post._id %>/comments/<%= r._id %>?_method=DELETE"
+        class="delete-form"
+        method="POST"
+      >
+        <button type="submit">X</button>
+      </form>
+      <a href="/comments/<%= r.id %>/edit" class="Edit-form">
+        <button type="submit">Edit Comment</button>
+      </a>
+      <% }); %>
     </div>
-  </form>
- 
-<% } %>
-
-<% if (post.comments.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Date</th>
-          <th>Comment</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% let total = 0 %>
-        <% post.comments.forEach(function(r) { %>
-            <div id="comment">
-                <%= r.content %><br>
-                <%= r.createdAt.toLocaleString() %>
-                <form action="/posts/<%= post._id %>/comments/<%= r._id %>?_method=DELETE"
-                  class="delete-form" method="POST">
-                  <button type="submit">X</button>
-                 
-                </form>
-                <% }); %>
-            </div>
-        <tr>
-          <td colspan="1"></td>
-          <td>
-            <strong>
-              <%= (total / post.comments.length).toFixed(1) %>
-            </strong>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h5>No Comments Yet</h5>
-  <% } %>
-
-
-<%- include('../partials/footer') %>
+    <tr>
+      <td colspan="1"></td>
+      <td>
+        <strong> <%= (total / post.comments.length).toFixed(1) %> </strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<% } else { %>
+<h5>No Comments Yet</h5>
+<% } %> <%- include('../partials/footer') %>
