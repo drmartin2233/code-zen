@@ -208,3 +208,8 @@ div {
   text-align: center;
   text-justify: auto;
 }
+
+.card {
+  display: flexbox;
+ 
+}

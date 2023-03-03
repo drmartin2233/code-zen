@@ -8,7 +8,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 // POST /movies/:id/comments
 router.post('/posts/:id/comments', ensureLoggedIn, commentsCtrl.create);
 // DELETE /comments/:id
-router.delete('/posts/:id/comments', commentsCtrl.delete);
+router.delete('/posts/:id/comments/:id', ensureLoggedIn, commentsCtrl.delete);
 
 
 

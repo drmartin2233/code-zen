@@ -6,42 +6,23 @@ module.exports = {
     delete: deleteComment
   };
 
-//   function deleteComment(req, res, next) {
-//     // Note the cool "dot" syntax to query for a movie with a
-//     // review nested within an array
-//     Post.findOne({
-//       'comments._id': req.params.id,
-//         "_comments.user": req.user._id,
-//       get "comments.user"() {
-//           return this["_comments.user"];
-//       },
-//       set "comments.user"(value) {
-//           this["_comments.user"] = value;
-//       },
-//     }).then(function(post) {
-//       if (!post) return res.redirect('/posts');
-//       post.comments.remove(req.params.id);
-//       post.save().then(function() {
-//         res.redirect(`/posts/${post._id}`);
-//       }).catch(function(err) {
-//         return next(err);
-//       });
-//     });
-//   }
 
-// function deleteComment({params: {id}},res) {
-//     Post.deleteOne({_id: id},function(err){
-//       res.redirect('/posts');
-//     });
-//   }
+
+
 
 function deleteComment(req, res) {
-    Post.findOneAndDelete(
-        {_id: req.params.id, userRecommending: req.user._id}, function(err) {
-        res.redirect('/posts');
+    Post.findOne({'comments._id':req.params.id}, function(err, post) {
+      console.log(post)
+      if (!post || err) return res.redirect(`/posts`);
+      post.comments.remove(req.params.id)
+         post.save(function(err) {
+        if (err) {
+            console.log(err)
+        }
+        res.redirect(`/posts/${post._id}`);
       }
     );
-  }
+  })}
   
   function create(req, res) {
     Post.findById(req.params.id, function(err, post) {
