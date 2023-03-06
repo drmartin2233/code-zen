@@ -1,10 +1,16 @@
 <%- include('../../partials/header') %>
 
+<div class="mb-3">
 
+
+</div>
 <form action="/comments/<%= comment._id %>?_method=PUT" method="POST">
     <!-- Value attribute is being set to the comment's current text -->
-    <input name="content" value="<%= comment.content %>">
-    <button type="submit">UPDATE COMMENT</button>
-  </form>
+    <input class="form-control form-control-lg" rows="6" name="content" value="<%= comment.content %>">
+    <div class="input-group-append">
+      <button class="btn btn-outline-light" type="submit">UPDATE COMMENT</button>
+
+    </div>
+</form>
 
   <%- include('../../partials/footer') %>

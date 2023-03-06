@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <form id="new-form" action="/posts/<%= post._id %>/update?_method=PUT" method="POST">
-  <label>Title:</label>
+  <label class="text-light">Title:</label>
   <input type="text" name="title" value="<%= post.title %>">
-  <label>Post:</label>
-  <input type="text" name="postContent" value="<%= post.postContent %>">
+  <label class="text-light">Post:</label>
+  <textarea name="postContent" value="<%= post.postContent %>"></textarea>
   
-  <input type="submit" value="Add Post">
+  <input type="submit"  class="btn btn-outline-info" value="Add Post">
 </form>
 
 <%- include('../partials/footer') %>

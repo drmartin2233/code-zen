@@ -1,24 +1,27 @@
 
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
+  color: #424748; */
+  background-image: url|none|initial|inherit;
+  font-family: 'Genos', sans-serif;
 }
 
 body {
-  margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"
+  
+    background: url('https://i.imgur.com/Bswd9sT.jpg') no-repeat center  fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;  
+    font-family: 'Genos', sans-serif;
 }
 
 body > nav {
+  
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: rgba(0, 0, 0, 0.73);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -26,7 +29,7 @@ body > nav {
 }
 
 nav > img {
-  width: 34px;
+  max-width: 100vh;
   object-fit: contain;
   margin-right: auto;
 }
@@ -36,9 +39,10 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #a79fb8;
+  background-color:  rgba(0, 0, 0, .43);
+  width: : 100%;
   padding: 20px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 body > main h1:first-child {
@@ -210,6 +214,6 @@ div {
 }
 
 .card {
-  display: flexbox;
+  /* display: flexbox; */
  
 }
