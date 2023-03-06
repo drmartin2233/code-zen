@@ -2,9 +2,9 @@
 
 "Code-Zen: Community Coding Support Blog"
 
-![](/users/davidmartin/code/projects/code-zen/public/images/landing page)
-![](/users/davidmartin/code/projects/code-zen/public/images/main index)
-![](/users/davidmartin/code/projects/code-zen/public/images/post page)
+![](images/landing page)
+![](images/main index)
+![](images/post page)
 
 
 This is intended to be a community blog focused around helping people find support on their journey 
