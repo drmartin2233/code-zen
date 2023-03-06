@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <div class="card text-white bg-dark mb-3">
+  <div class="card text-white bg-dark mb-3" style="--bs-bg-opacity: .75;">
     <div class="card-body">
 
       <!-- <div>Title:</div> -->
@@ -28,21 +28,22 @@
 </section>
 
 <br /><br />
-<div class="card text-white bg-dark mb-3">
+<div class="card text-white bg-dark mb-3" style="--bs-bg-opacity: .75;">
   <h2 class="text-light">Comments</h2>
-  
-  <% if (user) { %>
-  <form
-    id="add-comment-form"
-    method="POST"
-    action="/posts/<%= post._id %>/comments"
-  >
-    <!-- <label>Comment:</label> -->
-    <textarea name="content"></textarea><br />
-    <div>
-      <button type="submit" class="btn btn-outline-success">Add Comment</button> 
-    </div>
-  </form>
+  <dev class="card-body">
+    <% if (user) { %>
+    <form
+      id="add-comment-form"
+      method="POST"
+      action="/posts/<%= post._id %>/comments"
+    >
+      <!-- <label>Comment:</label> -->
+      <textarea name="content"></textarea><br />
+      <div>
+        <button type="submit" class="btn btn-outline-success">Add Comment</button> 
+      </div>
+    </form>
+  </dev>
 </div>
 
 <% } %> <% if (post.comments.length) { %>
@@ -57,19 +58,23 @@
   </thead> -->
   <tbody>
     <% let total = 0 %> <% post.comments.forEach(function(r) { %>
-    <div id="comment">
-      <%= r.content %><br />
-      <%= r.createdAt.toLocaleString() %>
-      <form
-        action="/posts/<%= post._id %>/comments/<%= r._id %>?_method=DELETE"
-        class="delete-form"
-        method="POST"
-      >
-        <button type="submit">X</button>
-      </form>
-      <a href="/comments/<%= r.id %>/edit" class="Edit-form">
-        <button type="submit" class="btn btn-outline-light">Edit Comment</button>
-      </a>
+    <div class ="card text-white bg-dark mb-3" style="--bs-bg-opacity: .75;">
+      <div class="card-body">
+        <p class="card-text mb-2">
+          <%= r.content %><br />
+          <%= r.createdAt.toLocaleString() %>
+        </p>
+        <form
+          action="/posts/<%= post._id %>/comments/<%= r._id %>?_method=DELETE"
+          class="delete-form"
+          method="POST"
+          >
+        </form>
+        <button type="submit" class="btn btn-outline-danger">Delete Comment</button>
+        <a href="/comments/<%= r.id %>/edit" class="Edit-form">
+          <button type="submit" class="btn btn-outline-light">Edit Comment</button>
+        </a>
+      </div>
       <% }); %>
     </div>
     <!-- <tr>

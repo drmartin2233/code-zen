@@ -28,7 +28,7 @@ body > nav {
   /* background-image: url("https://i.imgur.com/hwrlIP2.jpg")  ; */
   /* background-color: #B8C0C2; */
   grid-area: nav;
-  background-color: rgba(0, 0, 0, 0.53);
+  background-color: rgba(0, 0, 0, 0.73);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -46,7 +46,7 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:  rgba(0, 0, 0, .33);
+  background-color:  rgba(0, 0, 0, .43);
   width: : 100%;
   padding: 20px;
   /* overflow-y: scroll; */

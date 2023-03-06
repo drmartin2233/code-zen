@@ -2,24 +2,25 @@
 
 <html>
   <head>
-    <title><%= title %></title>
+    <title class="text-light"><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
    <div class="container">
-    <h1 class="mb-4">Code-Zen</h1>
+    <!-- <h1 class="mb-4 text-info">Code-Zen</h1> -->
+    <h1 class="text-light">- - - - - - -</h1>
     
     <% posts.forEach(post => { %>
-      <div class="card text-white bg-dark mb-3">
-        <img class="card-img-top" src="https://i.imgur.com/obNZb2N.jpg" alt="Card image cap">
+      <div class="card text-white bg-dark mb-3" style="--bs-bg-opacity: .75;">
+        <img class="card-img-top mh-35" src="https://i.imgur.com/obNZb2N.jpg" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">
+          <h3 class="card-title">
             <strong>
               <%= post.title %>
             </strong>
-          </h5>
+          </h3>
           <p class="card-text mb-2"><%= post.postContent %></p>
-          <div class="card-subtitle text-muted mb-2">
+          <div class="card-subtitle text-info mb-2">
             <%= post.createdAt.toLocaleDateString() %>
           </div>
           <div class="row">
