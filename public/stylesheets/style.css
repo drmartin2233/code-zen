@@ -9,13 +9,7 @@
 }
 
 body {
-  /* margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"; */
+  
     background: url('https://i.imgur.com/Bswd9sT.jpg') no-repeat center  fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -25,8 +19,7 @@ body {
 }
 
 body > nav {
-  /* background-image: url("https://i.imgur.com/hwrlIP2.jpg")  ; */
-  /* background-color: #B8C0C2; */
+  
   grid-area: nav;
   background-color: rgba(0, 0, 0, 0.73);
   display: flex;
