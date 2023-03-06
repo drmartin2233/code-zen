@@ -2,6 +2,9 @@
 
 "Code-Zen: Community Coding Support Blog"
 
+[https://code-zen.herokuapp.com/]
+[https://trello.com/b/wYGHdvZQ/project-2-learning-to-code-blog]
+
 <img src="public/images/landing-page.png">
 <img src="public/images/main-index.png">
 <img src= "public/images/post-page.png">
