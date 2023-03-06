@@ -2,9 +2,9 @@
 
 "Code-Zen: Community Coding Support Blog"
 
-<img src="images/landing page.png">
-<img src="images/main inde.png">
-<img src= "images/post page.png">
+<img src="public/images/landing-page.png">
+<img src="public/images/main-inde.png">
+<img src= "public/images/post-page.png">
 
 
 This is intended to be a community blog focused around helping people find support on their journey 
