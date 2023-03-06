@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <form id="new-form" action="/posts/new" method="POST">
-  <label>Title:</label>
+  <label class="text-light">Title:</label>
   <input type="text" name="title">
-  <label>Post:</label>
+  <label class="text-light">Post:</label>
   <input type="text" name="postContent">
   
-  <input type="submit" value="Add Post">
+  <input class="btn btn-outline-info" type="submit" value="Add Post">
 </form>
 
 <%- include('../partials/footer') %>
