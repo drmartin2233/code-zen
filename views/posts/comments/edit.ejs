@@ -4,7 +4,7 @@
 <form action="/comments/<%= comment._id %>?_method=PUT" method="POST">
     <!-- Value attribute is being set to the comment's current text -->
     <input name="content" value="<%= comment.content %>">
-    <button type="submit">UPDATE COMMENT</button>
+    <button class="btn btn-outline-light" type="submit">UPDATE COMMENT</button>
   </form>
 
   <%- include('../../partials/footer') %>
