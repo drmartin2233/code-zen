@@ -3,7 +3,7 @@
 "Code-Zen: Community Coding Support Blog"
 
 <img src="public/images/landing-page.png">
-<img src="public/images/main-inde.png">
+<img src="public/images/main-index.png">
 <img src= "public/images/post-page.png">
 
 
