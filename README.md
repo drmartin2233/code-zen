@@ -2,6 +2,9 @@
 
 "Code-Zen: Community Coding Support Blog"
 
+![](/users/davidmartin/code/projects/code-zen/public/images/landing page)
+![](/users/davidmartin/code/projects/code-zen/public/images/main index)
+![](/users/davidmartin/code/projects/code-zen/public/images/post page)
 
 
 This is intended to be a community blog focused around helping people find support on their journey 
@@ -12,8 +15,10 @@ Technologies used:
 
 -Javascript
 -MongoDB
+-NodeJS
 -Mongoose
 -OAuth
+-Passport
 -HTML/CSS
 -Bootstrap
 
@@ -25,3 +30,8 @@ community. This allows you to make and edit posts, as well as make and edit comm
 
 Next steps / Ice-Box items:
 
+-Fix bug where user names are not displayed on posts and comments
+-Integrate highlight.js to more clearly display code blocks in posts and comments
+-Integrage 3rd party api to display zen koans on landing page
+-Add markdown functionality 
+-UI refinement
